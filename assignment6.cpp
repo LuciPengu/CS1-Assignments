@@ -4,18 +4,18 @@ using namespace std;
 
 int main()
 {
-    int arr[10];
+    int x[10];
 
     for(int i = 0; i < 10; i++){
         cout << "Enter a value for index " << i << ": ";
-        cin >> arr[i];
+        cin >> x[i];
     }
     
-    int n = sizeof(arr) / sizeof(arr[0]);
-    sort(arr, arr + n);
+    int n = sizeof(x) / sizeof(x[0]);
+    sort(x, x + n);
     
-    cout << "Smallest Value: " << arr[0] << endl;
-    cout << "Largest Value: " << arr[n-1] << endl;
+    cout << "Smallest Value: " << x[0] << endl;
+    cout << "Largest Value: " << x[n-1] << endl;
 
 }
 
