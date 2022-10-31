@@ -7,15 +7,15 @@ int main()
     int x[10];
 
     for(int i = 0; i < 10; i++){
-        cout << "Enter a value for index " << i << ": ";
+        cout << "Enter a val for i " << i << ": ";
         cin >> x[i];
     }
     
     int n = sizeof(x) / sizeof(x[0]);
     sort(x, x + n);
     
-    cout << "Smallest Value: " << x[0] << endl;
-    cout << "Largest Value: " << x[n-1] << endl;
+    cout << "Smallest: " << x[0] << endl;
+    cout << "Largest: " << x[n-1] << endl;
 
 }
 
@@ -31,10 +31,10 @@ int main()
     double x[12];
 
     for(int i = 1; i <= 12; i++){
-        cout << "Enter a value for month " << i << ": ";
+        cout << "Enter a val" << i << ": ";
         cin >> x[i];
 	  while(x[i] < 0){
-            cout << "Please enter a positive value: ";
+            cout << "Please enter a pos val: ";
             cin >> x[i];
         }
     }
@@ -44,11 +44,11 @@ int main()
     sort(x, x + n);
     sum = accumulate(x , x+n , sum);
     
-    cout << "Total Rainfall: " << sum << endl;
-    cout << "Average Monthly Rainfall: " << (sum/sizeof(x)) << endl;
-    cout << "Highest Value: " << x[n-1] << endl;
-    cout << "Lowest Value: " << x[1] << endl;
-    cout << "Highest Value: " << x[n-1] << endl;
+    cout << " Rainfall: " << sum << endl;
+    cout << " Monthly Rainfall: " << (sum/sizeof(x)) << endl;
+    cout << "Highest : " << x[n-1] << endl;
+    cout << "Lowest : " << x[1] << endl;
+    cout << "Highest : " << x[n-1] << endl;
 
 }
 
@@ -81,8 +81,8 @@ int main()
         cout << salsas[i] << " sold " << x[i] << " salsas" << endl;
     }
     
-    cout << "The Total Salsas Sold: " << sum << endl;
-    cout << "Smallest Value: " << x[0] << endl;
-    cout << "Largest Value: " << x[n-1] << endl;
+    cout << " Salsas Sold: " << sum << endl;
+    cout << "Smallest : " << x[0] << endl;
+    cout << "Largest : " << x[n-1] << endl;
 
 }
