@@ -22,6 +22,7 @@ int main()
 -----------------------------------------------------------------------------------------------------------------------------
 
 
+
 #include <iostream>
 #include <bits/stdc++.h>
 #include <numeric>
@@ -44,15 +45,19 @@ int main()
             cin >> x[i];
         }
 
-        if (x[i] > biggest){
+        if (x[i] >= biggest){
             biggest = x[i];
             highestMonth = (i+1);
         }
-        if (x[i] < smallest){
+        if (x[i] <= smallest){
             smallest = x[i];
             lowestMonth = (i+1);
         }
-        if (i == 0) smallest = x[i];
+        
+        if (i == 0){
+            smallest = x[i];
+            biggest = x[i];
+        }
 
     }
     
