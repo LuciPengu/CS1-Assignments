@@ -81,29 +81,50 @@ using namespace std;
 
 int main()
 {
-    string salsas[5] = {"mild", "medium", "sweet", "hot", "zesty"};
-    int x[5];
-
-    for(int i = 0; i < 5; i++){
+    const int SIZE = 5;
+    string salsas[SIZE] = {"mild", "medium", "sweet", "hot", "zesty"};
+    int x[SIZE];
+    
+    int popular = 0;
+    int unpopular = 0;
+    double smallest = 0;
+    double biggest = 0;
+    
+    for(int i = 0; i < SIZE; i++){
         cout << "How many salsas sold that were " << salsas[i] << ": ";
         cin >> x[i];
         while(x[i] < 0){
             cout << "Please enter a positive value: ";
             cin >> x[i];
         }
+        if (x[i] >= biggest){
+            biggest = x[i];
+            popular = i;
+        }
+        if (x[i] <= smallest){
+            smallest = x[i];
+            unpopular = i;
+        }
+        
+        if (i == 0){
+            smallest = x[i];
+            biggest = x[i];
+        }
     }
     
     int n = sizeof(x) / sizeof(x[0]);
-    sort(x, x + n);
     int sum = 0; 
     sum = accumulate(x, x+n, sum);
     
-    for(int i = 0; i < 5; i++){
+    for(int i = 0; i < SIZE; i++){
         cout << salsas[i] << " sold " << x[i] << " salsas" << endl;
     }
     
-    cout << " Salsas Sold: " << sum << endl;
-    cout << "Smallest : " << x[0] << endl;
-    cout << "Largest : " << x[n-1] << endl;
+    cout << endl << "Total Salsas Sold: " << sum << endl;
+    cout << "Smallest : " << smallest << endl;
+    cout << "Largest : " << biggest << endl;
+    cout << "Most Popular Salsa: " << salsas[popular] << endl;
+    cout << "Least Popular Salsa: " << salsas[unpopular] << endl;
+    
 
 }
