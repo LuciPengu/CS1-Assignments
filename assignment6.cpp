@@ -21,6 +21,7 @@ int main()
 
 -----------------------------------------------------------------------------------------------------------------------------
 
+
 #include <iostream>
 #include <bits/stdc++.h>
 #include <numeric>
@@ -28,29 +29,44 @@ using namespace std;
 
 int main()
 {
-    double x[12];
-
-    for(int i = 1; i <= 12; i++){
-        cout << "Enter a val" << i << ": ";
+    const int SIZE = 12;
+    double x[SIZE];
+    int highestMonth = 0;
+    int lowestMonth = 0;
+    double biggest = 0;
+    double smallest = 0;
+    for(int i = 0; i < SIZE; i++){
+        cout << "Enter a val for month " << (i+1) << ": ";
         cin >> x[i];
-	  while(x[i] < 0){
+
+	    while(x[i] < 0){
             cout << "Please enter a pos val: ";
             cin >> x[i];
         }
+
+        if (x[i] > biggest){
+            biggest = x[i];
+            highestMonth = (i+1);
+        }
+        if (x[i] < smallest){
+            smallest = x[i];
+            lowestMonth = (i+1);
+        }
+        if (i == 0) smallest = x[i];
+
     }
     
     int n = sizeof(x) / sizeof(x[0]);
-    double sum;
-    sort(x, x + n);
-    sum = accumulate(x , x+n , sum);
-    
-    cout << " Rainfall: " << sum << endl;
-    cout << " Monthly Rainfall: " << (sum/sizeof(x)) << endl;
-    cout << "Highest : " << x[n-1] << endl;
-    cout << "Lowest : " << x[1] << endl;
-    cout << "Highest : " << x[n-1] << endl;
+    double sum = accumulate(x , x+n , sum);
+    cout << "Total Rainfall: " << sum << endl;
+    cout << "Average Monthly Rainfall: " << (sum/SIZE) << endl;
+    cout << "Highest : " << biggest <<endl;
+    cout << "Lowest : " << smallest << endl;
+    cout << "Highest Month: " << highestMonth << endl;
+    cout << "Lowest Month: " << lowestMonth << endl;
 
 }
+
 
 -----------------------------------------------------------------------------------------------------------------------------
 
