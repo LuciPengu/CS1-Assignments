@@ -21,8 +21,6 @@ int main()
 
 -----------------------------------------------------------------------------------------------------------------------------
 
-
-
 #include <iostream>
 #include <bits/stdc++.h>
 #include <numeric>
@@ -31,13 +29,14 @@ using namespace std;
 int main()
 {
     const int SIZE = 12;
+    string months[SIZE] = {"january", "febuary", "march", "april", "may", "june", "july", "august", "september", "october", "november", "december"};
     double x[SIZE];
     int highestMonth = 0;
     int lowestMonth = 0;
     double biggest = 0;
     double smallest = 0;
     for(int i = 0; i < SIZE; i++){
-        cout << "Enter a val for month " << (i+1) << ": ";
+        cout << "Enter a val for " << months[i] << ": ";
         cin >> x[i];
 
 	    while(x[i] < 0){
@@ -47,11 +46,11 @@ int main()
 
         if (x[i] >= biggest){
             biggest = x[i];
-            highestMonth = (i+1);
+            highestMonth = (i);
         }
         if (x[i] <= smallest){
             smallest = x[i];
-            lowestMonth = (i+1);
+            lowestMonth = (i);
         }
         
         if (i == 0){
@@ -67,11 +66,10 @@ int main()
     cout << "Average Monthly Rainfall: " << (sum/SIZE) << endl;
     cout << "Highest : " << biggest <<endl;
     cout << "Lowest : " << smallest << endl;
-    cout << "Highest Month: " << highestMonth << endl;
-    cout << "Lowest Month: " << lowestMonth << endl;
+    cout << "Highest Month: " << months[highestMonth] << endl;
+    cout << "Lowest Month: " << months[lowestMonth] << endl;
 
 }
-
 
 -----------------------------------------------------------------------------------------------------------------------------
 
